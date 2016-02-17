@@ -4,6 +4,14 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/classes/log4j.properties</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
@@ -11,12 +19,18 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <servlet>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>view-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:com/homework/rm/dispatcher-servlet.xml</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.form</url-pattern>
+        <servlet-name>view-dispatcher</servlet-name>
+        <url-pattern>/view/*</url-pattern>
     </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>/view/test</welcome-file>
+    </welcome-file-list>
 </web-app>
