@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ResourceMonitor.iml" filepath="$PROJECT_DIR$/ResourceMonitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-back/app-back.iml" filepath="$PROJECT_DIR$/app-back/app-back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-gwt-client/app-gwt-client.iml" filepath="$PROJECT_DIR$/app-gwt-client/app-gwt-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-web/app-web.iml" filepath="$PROJECT_DIR$/app-web/app-web.iml" />
+    </modules>
+  </component>
+</project>
