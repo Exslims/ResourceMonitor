@@ -40,7 +40,7 @@ public class CpuUsagePresenterImpl implements CpuUsagePresenter {
                 });
             }
         };
-        timer.schedule(350);
+        timer.scheduleRepeating(700);
     }
 
     @Override
