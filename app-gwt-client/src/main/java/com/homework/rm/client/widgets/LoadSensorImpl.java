@@ -6,7 +6,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
 
 
-public class LoadSensorImpl extends LoadSensorBase<LoadSensorPresenter> implements HasStyleSheets {
+public class LoadSensorImpl extends Composite implements HasStyleSheets,LoadSensor {
 
     interface ResourceWidgetUiBinder extends UiBinder<HTMLPanel, LoadSensorImpl> {
     }
@@ -45,6 +45,7 @@ public class LoadSensorImpl extends LoadSensorBase<LoadSensorPresenter> implemen
     public void setTitle(String title) {
         titleField.setText(title);
     }
+
 
     @SuppressWarnings("all")
     @Override
