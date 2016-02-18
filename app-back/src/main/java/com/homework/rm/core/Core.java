@@ -1,29 +1,39 @@
 package com.homework.rm.core;
 
 
-import com.homework.rm.core.utils.NativeUtils;
-import org.apache.log4j.Logger;
-
-import java.io.IOException;
+import java.util.Random;
 
 public class Core {
 
-    private static Logger logger  = Logger.getLogger(Core.class);
-    private static final String LIBRARY_NAME = "core.dll";
-    static {
-        try {
-            NativeUtils.loadLibraryFromJar("/" + LIBRARY_NAME);
-        } catch (IOException e) {
-            logger.error(e);
-        }
+    public float cpuLoad() {
+        return new Random().nextInt(100);
     }
 
-    public native float cpuLoad();
-    public native int usedRam();
-    public native int totalRam();
-    public native int freeRam();
-    public native int virtualMemory();
-    public native int totalDiskSpace();
-    public native int usedDiskSpace();
-    public native int freeDiskSpace();
+    public int usedRam() {
+        return 0;
+    }
+
+    public int totalRam() {
+        return 0;
+    }
+
+    public int freeRam() {
+        return 0;
+    }
+
+    public int virtualMemory() {
+        return 0;
+    }
+
+    public int totalDiskSpace() {
+        return 0;
+    }
+
+    public int usedDiskSpace() {
+        return 0;
+    }
+
+    public int freeDiskSpace() {
+        return 0;
+    }
 }

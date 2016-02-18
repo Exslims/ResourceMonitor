@@ -19,9 +19,8 @@ public class MonitorController {
 
     @ResponseStatus(value = HttpStatus.OK )
     @RequestMapping(value = "/cpu-load", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
     public Float cpuLoad() {
-        return 50.0f;
+        return core.cpuLoad();
     }
 
     @RequestMapping(value = "/used-ram", method = RequestMethod.GET, produces = "application/json")
