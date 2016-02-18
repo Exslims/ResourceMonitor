@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MonitorController {
 
     Logger logger = Logger.getLogger(MonitorController.class);
-
+//
     @ResponseStatus(value = HttpStatus.OK )
     @RequestMapping(value = "/cpu-load", method = RequestMethod.GET, produces = "application/json")
     public Integer cpuLoad() {
