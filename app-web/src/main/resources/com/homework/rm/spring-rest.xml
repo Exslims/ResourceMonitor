@@ -7,4 +7,9 @@
     <mvc:annotation-driven />
     <context:annotation-config/>
     <context:component-scan base-package="com.homework.rm.service"/>
+
+    <beans>
+        <bean name="coreBean" class="com.homework.rm.core.Core"/>
+    </beans>
+
 </beans>

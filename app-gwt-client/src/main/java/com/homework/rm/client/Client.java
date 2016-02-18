@@ -1,7 +1,8 @@
 package com.homework.rm.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.homework.rm.client.widgets.LoadSensorImpl;
 
 /**
@@ -15,7 +16,6 @@ public class Client implements EntryPoint {
 //        sensor.setRadian(100);
         sensor.setValue(100);
         panel.add(sensor);
-
         RootPanel.get("root").add(panel);
     }
 }
