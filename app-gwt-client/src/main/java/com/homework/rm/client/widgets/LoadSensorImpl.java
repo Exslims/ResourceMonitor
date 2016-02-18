@@ -14,9 +14,13 @@ public class LoadSensorImpl extends LoadSensorBase<LoadSensorPresenter> implemen
     private static ResourceWidgetUiBinder ourUiBinder = GWT.create(ResourceWidgetUiBinder.class);
 
     @UiField
+    SimplePanel content;
+    @UiField
     InlineLabel span;
     @UiField
     Label titleField;
+    @UiField
+    Label valueField;
 
 
     public LoadSensorImpl() {
@@ -27,30 +31,35 @@ public class LoadSensorImpl extends LoadSensorBase<LoadSensorPresenter> implemen
 
     @Override
     public void setRadian(double value) {
-
+        span.getElement().getStyle().setProperty("webkitTransform","rotate(" + value + "deg)");
+        span.getElement().getStyle().setProperty("transform","rotate(" + value + "deg)");
     }
 
     @Override
-    public void setUnits(int start, int end) {
+    public void setValue(double value) {
+       valueField.setText(String.valueOf(value));
     }
-
 
 
     @Override
     public void setTitle(String title) {
+        titleField.setText(title);
     }
 
+    @SuppressWarnings("all")
     @Override
     public void setStyleSheets() {
-        addStyleName("gwt-Sensor");
+        content.addStyleName("gwt-Sensor");
         span.addStyleName("gwt-Span");
         titleField.addStyleName("gwt-Title");
+        valueField.addStyleName("gwt-ValueField");
     }
-
+    @SuppressWarnings("all")
     @Override
     public void removeStyleSheets() {
-        addStyleName("gwt-Sensor");
+        content.addStyleName("gwt-Sensor");
         span.addStyleName("gwt-Span");
         titleField.removeStyleName("gwt-Title");
+        valueField.removeStyleName("gwt-ValueField");
     }
 }

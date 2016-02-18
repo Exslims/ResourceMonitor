@@ -11,7 +11,9 @@ public class Client implements EntryPoint {
     public void onModuleLoad() {
         SimplePanel panel = new SimplePanel();
         LoadSensorImpl sensor = new LoadSensorImpl();
-        sensor.setUnits(0,100);
+        sensor.setTitle("RAM");
+//        sensor.setRadian(100);
+        sensor.setValue(100);
         panel.add(sensor);
 
         RootPanel.get("root").add(panel);

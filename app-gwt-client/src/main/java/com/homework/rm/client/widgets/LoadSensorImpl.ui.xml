@@ -1,7 +1,10 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
     <g:HTMLPanel>
-        <g:InlineLabel ui:field="span"/>
-        <g:Label ui:field="titleField">HOVER</g:Label>
+        <g:SimplePanel ui:field="content">
+            <g:InlineLabel ui:field="span"/>
+        </g:SimplePanel>
+        <g:Label ui:field="valueField"/>
+        <g:Label ui:field="titleField">CPU</g:Label>
     </g:HTMLPanel>
 </ui:UiBinder>

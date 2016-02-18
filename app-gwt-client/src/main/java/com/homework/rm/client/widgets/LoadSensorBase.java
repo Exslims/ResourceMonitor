@@ -13,6 +13,6 @@ public abstract class LoadSensorBase<P> extends Composite {
     }
 
     public abstract void setRadian(double value);
-    public abstract void setUnits(int start, int end);
+    public abstract void setValue(double value);
     public abstract void setTitle(String title);
 }
