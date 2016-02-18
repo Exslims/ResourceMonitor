@@ -36,8 +36,8 @@ public class LoadSensorImpl extends Composite implements HasStyleSheets,LoadSens
     }
 
     @Override
-    public void setValue(double value) {
-       valueField.setText(String.valueOf(value));
+    public void setValue(String value) {
+       valueField.setText(value);
     }
 
 

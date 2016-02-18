@@ -21,7 +21,7 @@ public class MonitorController {
     @RequestMapping(value = "/cpu-load", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public Float cpuLoad() {
-        return core.cpuLoad();
+        return 50.0f;
     }
 
     @RequestMapping(value = "/used-ram", method = RequestMethod.GET, produces = "application/json")

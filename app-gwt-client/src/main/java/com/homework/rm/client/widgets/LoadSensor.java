@@ -5,6 +5,6 @@ package com.homework.rm.client.widgets;
  */
 public interface LoadSensor {
     void setRadian(double value);
-    void setValue(double value);
+    void setValue(String value);
     void setTitle(String title);
 }

@@ -1,6 +1,7 @@
-package com.homework.rm.client;
+package com.homework.rm.client.service;
 
 import org.fusesource.restygwt.client.MethodCallback;
+import org.fusesource.restygwt.client.RestService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,10 +10,10 @@ import javax.ws.rs.Path;
  * Created by Константин on 18.02.2016.
  */
 @Path("/info")
-public interface ResourceRestService {
+public interface ResourceRestService extends RestService {
     @GET
     @Path("/cpu-load")
-    void getCpuLoad(MethodCallback<Integer> callback);
+    void getCpuLoad(MethodCallback<Float> callback);
     @GET
     @Path("/current-ram")
     void getCurrentRam(MethodCallback<Integer> callback);
