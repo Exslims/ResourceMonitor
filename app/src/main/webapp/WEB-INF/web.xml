@@ -30,6 +30,20 @@
         <servlet-name>view-dispatcher</servlet-name>
         <url-pattern>/view/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>rest-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:com/homework/rm/spring-rest.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rest-dispatcher</servlet-name>
+        <url-pattern>/info/*</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>/view/test</welcome-file>
     </welcome-file-list>
