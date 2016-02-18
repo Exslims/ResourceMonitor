@@ -14,8 +14,8 @@
     <mvc:annotation-driven/>
     <context:annotation-config/>
     <context:component-scan base-package="com.homework.rm.view"/>
-
     <bean name="viewResolver" class="com.homework.rm.view.template.ClosureTemplateViewResolver">
         <property name="templateLocation" value="WEB-INF/templates"/>
     </bean>
+
 </beans>
