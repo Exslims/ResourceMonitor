@@ -27,5 +27,4 @@ public class ViewController {
         model.addAttribute("module",model);
         return "view.test";
     }
-
 }
