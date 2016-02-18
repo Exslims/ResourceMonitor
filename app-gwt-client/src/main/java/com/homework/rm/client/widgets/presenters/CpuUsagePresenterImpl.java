@@ -1,8 +1,9 @@
-package com.homework.rm.client.widgets;
+package com.homework.rm.client.widgets.presenters;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.homework.rm.client.service.ResourceRestService;
+import com.homework.rm.client.widgets.LoadSensor;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 
@@ -19,7 +20,9 @@ public class CpuUsagePresenterImpl implements CpuUsagePresenter {
 
 
     @Override
-    public void onChangeValue() {
+    public void onStart() {
+        service = GWT.create(ResourceRestService.class);
+
         Timer timer = new Timer() {
             @Override
             public void run() {
@@ -38,11 +41,6 @@ public class CpuUsagePresenterImpl implements CpuUsagePresenter {
             }
         };
         timer.schedule(350);
-    }
-
-    @Override
-    public void onStart() {
-        service = GWT.create(ResourceRestService.class);
     }
 
     @Override

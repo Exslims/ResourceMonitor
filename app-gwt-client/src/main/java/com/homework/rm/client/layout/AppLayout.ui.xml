@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+            xmlns:my='urn:import:com.homework.rm.client.widgets'>
+    <g:HTMLPanel>
+        <div class="container">
+            <div class="dashboard">
+                <div class="widget">
+                    <my:LoadSensorImpl ui:field="cpuUsageSensor"/>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

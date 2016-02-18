@@ -29,7 +29,7 @@ public class MonitorController {
         return core.usedRam();
     }
 
-    @RequestMapping(value = "/total-ram", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/free-ram", method = RequestMethod.GET, produces = "application/json")
     public Integer freeRAM() {
         return core.freeRam();
     }

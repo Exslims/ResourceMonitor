@@ -1,6 +1,8 @@
 package com.homework.rm.client.widgets;
 
 import com.google.gwt.junit.client.GWTTestCase;
+import com.homework.rm.client.widgets.presenters.CpuUsagePresenter;
+import com.homework.rm.client.widgets.presenters.CpuUsagePresenterImpl;
 import org.junit.Before;
 import org.junit.Test;
 
