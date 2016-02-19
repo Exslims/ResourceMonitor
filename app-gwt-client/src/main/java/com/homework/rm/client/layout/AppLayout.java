@@ -6,8 +6,8 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.homework.rm.client.widgets.LoadSensorImpl;
-import com.homework.rm.client.widgets.presenters.CpuUsagePresenter;
-import com.homework.rm.client.widgets.presenters.CpuUsagePresenterImpl;
+import com.homework.rm.client.widgets.presenters.SensorPresenter;
+import com.homework.rm.client.widgets.presenters.CpuLoadPresenter;
 
 /**
  * Created by Константин on 18.02.2016.
@@ -18,17 +18,31 @@ public class AppLayout extends Composite {
 
     private static AppLayoutUiBinder ourUiBinder = GWT.create(AppLayoutUiBinder.class);
 
-    CpuUsagePresenter cpuUsagePresenter;
+    SensorPresenter sensorPresenter;
+    SensorPresenter ramUsedPresenter;
+    SensorPresenter virtualMemPresenter;
 
     @UiField
-    LoadSensorImpl cpuUsageSensor;
+    LoadSensorImpl cpuLoadSensor;
+    @UiField
+    LoadSensorImpl ramUsedSensor;
+    @UiField
+    LoadSensorImpl virtualMemSensor;
 
     public AppLayout() {
         initWidget(ourUiBinder.createAndBindUi(this));
 
-        cpuUsageSensor.setTitle("CPU");
-        cpuUsagePresenter = new CpuUsagePresenterImpl(cpuUsageSensor);
-        cpuUsagePresenter.onStart();
+        cpuLoadSensor.setTitle("CPU");
+        sensorPresenter = new CpuLoadPresenter(cpuLoadSensor);
+        sensorPresenter.onStart();
+
+        ramUsedSensor.setTitle("RAM");
+        ramUsedPresenter = new CpuLoadPresenter(ramUsedSensor);
+        ramUsedPresenter.onStart();
+
+        virtualMemSensor.setTitle("Virtual Memory");
+        virtualMemPresenter = new CpuLoadPresenter(virtualMemSensor);
+        virtualMemPresenter.onStart();
     }
 
 }

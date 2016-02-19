@@ -5,7 +5,13 @@
         <div class="container">
             <div class="dashboard">
                 <div class="widget">
-                    <my:LoadSensorImpl ui:field="cpuUsageSensor"/>
+                    <my:LoadSensorImpl ui:field="cpuLoadSensor"/>
+                </div>
+                <div class="widget">
+                    <my:LoadSensorImpl ui:field="ramUsedSensor"/>
+                </div>
+                <div class="widget">
+                    <my:LoadSensorImpl ui:field="virtualMemSensor"/>
                 </div>
             </div>
         </div>

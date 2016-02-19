@@ -15,15 +15,18 @@ public interface ResourceRestService extends RestService {
     @Path("/cpu-load")
     void getCpuLoad(MethodCallback<Float> callback);
     @GET
-    @Path("/current-ram")
-    void getCurrentRam(MethodCallback<Integer> callback);
+    @Path("/used-ram")
+    void getUsedRam(MethodCallback<Float> callback);
     @GET
     @Path("/total-ram")
-    void getTotalRam(MethodCallback<Integer> callback);
+    void getTotalRam(MethodCallback<Float> callback);
     @GET
     @Path("/virtual-memory")
-    void getVirtualMemory(MethodCallback<Integer> callback);
+    void getVirtualMemory(MethodCallback<Float> callback);
     @GET
-    @Path("/disk-space")
-    void getDiskSpace(MethodCallback<Integer> callback);
+    @Path("/used-disk-space")
+    void getUsedDiskSpace(MethodCallback<Float> callback);
+    @GET
+    @Path("/total-disk-space")
+    void getTotalDiskSpace(MethodCallback<Float> callback);
 }

@@ -1,16 +1,16 @@
-package com.homework.rm.client.widgets;
+package com.homework.rm.client.widgets.presenters;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import com.homework.rm.client.widgets.presenters.CpuUsagePresenter;
-import com.homework.rm.client.widgets.presenters.CpuUsagePresenterImpl;
+import com.homework.rm.client.widgets.presenters.SensorPresenter;
+import com.homework.rm.client.widgets.presenters.CpuLoadPresenter;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CpuUsagePresenterImplTest extends GWTTestCase {
-    private CpuUsagePresenter presenter = new CpuUsagePresenterImpl(null);
+public class CpuLoadPresenterTest extends GWTTestCase {
+    private SensorPresenter presenter = new CpuLoadPresenter(null);
     @Before
     public void before(){
-        presenter = new CpuUsagePresenterImpl(null);
+        presenter = new CpuLoadPresenter(null);
     }
 
     @Test

@@ -8,25 +8,36 @@ import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 
 /**
- * Created by Константин on 18.02.2016.
+ * Created by Константин on 19.02.2016.
  */
-public class CpuUsagePresenterImpl implements CpuUsagePresenter {
+public class RamUsagePresenter implements SensorPresenter {
     private LoadSensor sensor;
     private ResourceRestService service;
 
-    public CpuUsagePresenterImpl(LoadSensor sensor) {
+    private Float totalRam;
+
+    public RamUsagePresenter(LoadSensor sensor) {
         this.sensor = sensor;
     }
-
-
     @Override
     public void onStart() {
         service = GWT.create(ResourceRestService.class);
+        service.getTotalRam(new MethodCallback<Float>() {
+            @Override
+            public void onFailure(Method method, Throwable exception) {
+
+            }
+
+            @Override
+            public void onSuccess(Method method, Float response) {
+                totalRam = response;
+            }
+        });
 
         Timer timer = new Timer() {
             @Override
             public void run() {
-                service.getCpuLoad(new MethodCallback<Float>() {
+                service.getUsedRam(new MethodCallback<Float>() {
                     @Override
                     public void onFailure(Method method, Throwable exception) {
                         sensor.setValue("Error - " + exception.getMessage());
@@ -34,19 +45,23 @@ public class CpuUsagePresenterImpl implements CpuUsagePresenter {
 
                     @Override
                     public void onSuccess(Method method, Float response) {
-                        sensor.setValue(response + "%");
+                        sensor.setValue(String.valueOf(response));
                         sensor.setRadian(calculateAngleForArrow(response));
                     }
                 });
             }
         };
-        timer.scheduleRepeating(700);
+
+        timer.scheduleRepeating(500);
     }
 
     @Override
-    public int calculateAngleForArrow(Float cpuUsage){
-        return (int)(cpuUsage*1.8);
+    public int calculateAngleForArrow(Float value) {
+        float percent = (value * 100) / totalRam;
+        return (int)(percent * 1.8);
     }
 
-
+    public void setTotalRam(Float totalRam) {
+        this.totalRam = totalRam;
+    }
 }
