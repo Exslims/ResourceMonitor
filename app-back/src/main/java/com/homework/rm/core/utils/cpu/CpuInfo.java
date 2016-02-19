@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CpuInfo {
 
-
     @Autowired
     private CpuLoadMonitor monitor;
 

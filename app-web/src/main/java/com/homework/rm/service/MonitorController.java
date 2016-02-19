@@ -4,7 +4,10 @@ import com.homework.rm.core.Core;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 
@@ -33,22 +36,12 @@ public class MonitorController {
         return core.freeRam();
     }
 
-    @RequestMapping(value = "/total-ram", method = RequestMethod.GET, produces = "application/json")
-    public Integer totalRAM() {
-        return core.totalRam();
-    }
-
-    @RequestMapping(value = "/virtual-memory", method = RequestMethod.GET, produces = "application/json")
-    public Integer virtualMemory() {
-        return core.virtualMemory();
-    }
-
-    @RequestMapping(value = "/free-disk-space", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/free-drive-space", method = RequestMethod.GET, produces = "application/json")
     public Integer freeDiskSpace() {
         return core.freeDiskSpace();
     }
 
-    @RequestMapping(value = "/used-disk-space", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/used-drive-space", method = RequestMethod.GET, produces = "application/json")
     public Integer usedDiskSpace() {
         return core.usedDiskSpace();
     }
