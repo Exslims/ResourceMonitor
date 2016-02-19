@@ -10,11 +10,11 @@ public class Core {
     }
 
     public int usedRam() {
-        return new Random().nextInt(8000);
+        return 0;
     }
 
     public int totalRam() {
-        return 8000;
+        return 0;
     }
 
     public int freeRam() {

@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.homework.rm.client.widgets.LoadSensorImpl;
+import com.homework.rm.client.widgets.presenters.RamUsagePresenter;
 import com.homework.rm.client.widgets.presenters.SensorPresenter;
 import com.homework.rm.client.widgets.presenters.CpuLoadPresenter;
 
@@ -37,7 +38,7 @@ public class AppLayout extends Composite {
         sensorPresenter.onStart();
 
         ramUsedSensor.setTitle("RAM");
-        ramUsedPresenter = new CpuLoadPresenter(ramUsedSensor);
+        ramUsedPresenter = new RamUsagePresenter(ramUsedSensor);
         ramUsedPresenter.onStart();
 
         virtualMemSensor.setTitle("Virtual Memory");
