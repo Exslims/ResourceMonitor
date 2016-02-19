@@ -12,21 +12,15 @@ import java.io.IOException;
 
 @Component
 public class CpuLoadMonitor {
-    private ByteArrayOutputStream stdout;
-    private DefaultExecutor exec;
-    private CommandLine commandLine;
     private static final String WMIC_CPU_GET_LOADPER = "wmic cpu get loadpercentage";
-
-    public CpuLoadMonitor() {
-        this.stdout = new ByteArrayOutputStream();
-        PumpStreamHandler streamHandler = new PumpStreamHandler(stdout);
-        this.commandLine = CommandLine.parse(WMIC_CPU_GET_LOADPER);
-        this.exec = new DefaultExecutor();
-        this.exec.setStreamHandler(streamHandler);
-    }
 
     public float getLoad() {
         try {
+            ByteArrayOutputStream stdout = new ByteArrayOutputStream();
+            PumpStreamHandler streamHandler = new PumpStreamHandler(stdout);
+            CommandLine commandLine = CommandLine.parse(WMIC_CPU_GET_LOADPER);
+            DefaultExecutor exec = new DefaultExecutor();
+            exec.setStreamHandler(streamHandler);
             exec.execute(commandLine);
             String[] strings = stdout.toString().split("\n");
             String percent = strings[1];

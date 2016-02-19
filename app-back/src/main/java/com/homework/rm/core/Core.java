@@ -1,6 +1,7 @@
 package com.homework.rm.core;
 
 import com.homework.rm.core.utils.cpu.CpuInfo;
+import com.homework.rm.core.utils.ram.RamInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +11,15 @@ public class Core {
     @Autowired
     private CpuInfo cpuInfo;
 
+    @Autowired
+    private RamInfo ramInfo;
+
     public float cpuLoad() {
         return cpuInfo.cpuLoad();
     }
 
     public int usedRam() {
-        return 0;
+        return ramInfo.usedRam();
     }
 
     public int totalRam() {
@@ -41,12 +45,5 @@ public class Core {
     public int freeDiskSpace() {
         return 0;
     }
-
-
-//    @PostConstruct
-//    public void init() {
-//        LibrariesBootstrapLoader bootstrapLoader = LibrariesBootstrapLoader.getInstance();
-//        bootstrapLoader.loadLibraries();
-//    }
 
 }
