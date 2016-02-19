@@ -2,14 +2,16 @@ package com.homework.rm.core;
 
 import com.homework.rm.core.utils.cpu.CpuInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Core {
 
     @Autowired
     private CpuInfo cpuInfo;
 
     public float cpuLoad() {
-        return 0;
+        return cpuInfo.cpuLoad();
     }
 
     public int usedRam() {
@@ -39,4 +41,12 @@ public class Core {
     public int freeDiskSpace() {
         return 0;
     }
+
+
+//    @PostConstruct
+//    public void init() {
+//        LibrariesBootstrapLoader bootstrapLoader = LibrariesBootstrapLoader.getInstance();
+//        bootstrapLoader.loadLibraries();
+//    }
+
 }

@@ -41,6 +41,7 @@
             <element id="module-output" name="app-back" />
           </element>
           <element id="library" level="project" name="Maven: org.fusesource:sigar:1.6.4" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-exec:1.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

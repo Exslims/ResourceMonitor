@@ -1,53 +1,39 @@
 package com.homework.rm.core.utils.cpu.load;
 
 
-import org.hyperic.sigar.ProcCpu;
-import org.hyperic.sigar.Sigar;
-import org.hyperic.sigar.SigarException;
+
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.PumpStreamHandler;
 import org.springframework.stereotype.Component;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
+@Component
 public class CpuLoadMonitor {
+    private ByteArrayOutputStream stdout;
+    private DefaultExecutor exec;
+    private CommandLine commandLine;
+    private static final String WMIC_CPU_GET_LOADPER = "wmic cpu get loadpercentage";
 
-    private static final int TOTAL_TIME_UPDATE_LIMIT = 2000;
-
-    private final Sigar sigar;
-    private final int cpuCount;
-    private final long pid;
-    private ProcCpu procCpu;
-    private float load;
-
-    public CpuLoadMonitor() throws SigarException {
-        sigar = new Sigar();
-        cpuCount = sigar.getCpuList().length;
-        pid = sigar.getPid();
-        procCpu = sigar.getProcCpu(pid);
-        load = 0;
-        TimerTask updateLoadTask = new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    ProcCpu curPc = sigar.getProcCpu(pid);
-                    long totalDelta = curPc.getTotal() - procCpu.getTotal();
-                    long timeDelta = curPc.getLastTime() - procCpu.getLastTime();
-                    if (totalDelta == 0) {
-                        if (timeDelta > TOTAL_TIME_UPDATE_LIMIT) load = 0;
-                        if (load == 0) procCpu = curPc;
-                    } else {
-                        load = 100.0f * totalDelta / timeDelta / cpuCount;
-                        procCpu = curPc;
-                    }
-                } catch (SigarException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        };
-        new Timer(true).schedule(updateLoadTask, 0, 1000);
+    public CpuLoadMonitor() {
+        this.stdout = new ByteArrayOutputStream();
+        PumpStreamHandler streamHandler = new PumpStreamHandler(stdout);
+        this.commandLine = CommandLine.parse(WMIC_CPU_GET_LOADPER);
+        this.exec = new DefaultExecutor();
+        this.exec.setStreamHandler(streamHandler);
     }
 
     public float getLoad() {
-        return load;
+        try {
+            exec.execute(commandLine);
+            String[] strings = stdout.toString().split("\n");
+            String percent = strings[1];
+            return Float.parseFloat(percent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
