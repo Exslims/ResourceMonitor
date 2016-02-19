@@ -1,12 +1,15 @@
 package com.homework.rm.core;
 
-
-import java.util.Random;
+import com.homework.rm.core.utils.cpu.CpuInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Core {
 
+    @Autowired
+    private CpuInfo cpuInfo;
+
     public float cpuLoad() {
-        return new Random().nextInt(100);
+        return 0;
     }
 
     public int usedRam() {

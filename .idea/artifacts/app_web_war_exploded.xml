@@ -40,6 +40,7 @@
           <element id="archive" name="app-back-1.0-SNAPSHOT.jar">
             <element id="module-output" name="app-back" />
           </element>
+          <element id="library" level="project" name="Maven: org.fusesource:sigar:1.6.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">

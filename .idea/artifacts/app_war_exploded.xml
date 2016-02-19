@@ -46,6 +46,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.6.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.6.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.6.3" />
+          <element id="library" level="project" name="Maven: org.fusesource:sigar:1.6.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
